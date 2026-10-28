@@ -1,0 +1,22 @@
+{% extends 'crm/base.html' %}
+{% block content %}
+    <h2>Список потенциальных клиентов</h2>
+    <a href="{% url 'lead_create' %}"><button>+ Добавить клиента</button></a>
+    <ul>
+        {% for lead in leads %}
+            <li>
+                <a href="{% url 'lead_detail' lead.pk %}">{{ lead.full_name }}</a> ({{ lead.phone }})
+                <a href="{% url 'lead_update' lead.pk %}">[Ред.]</a>
+                <a href="{% url 'lead_delete' lead.pk %}">[Удал.]</a>
+
+                {% if not lead.active_client %}
+                    <a href="{% url 'active_client_create' lead.pk %}" style="color: green; font-weight: bold;">[Сделать активным]</a>
+                {% else %}
+                    <span style="color: gray;">[Уже активен]</span>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Потенциальных клиентов пока нет.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+    <h2>Список рекламных кампаний</h2>
+
+    <a href="{% url 'campaign_create' %}"><button>+ Создать кампанию</button></a>
+
+    <ul>
+        {% for campaign in campaigns %}
+            <li>
+                <a href="{% url 'campaign_detail' campaign.pk %}">{{ campaign.title }}</a>
+                (Услуга: {{ campaign.service.title }}, Бюджет: {{ campaign.budget }} руб.)
+
+                <a href="{% url 'campaign_update' campaign.pk %}">[Ред.]</a>
+                <a href="{% url 'campaign_delete' campaign.pk %}">[Удал.]</a>
+            </li>
+        {% empty %}
+            <li>Кампаний пока нет.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

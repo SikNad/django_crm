@@ -1,0 +1,14 @@
+{% extends 'crm/base.html' %}
+{% block content %}
+    <h2>Список активных клиентов</h2>
+    <ul>
+        {% for client in active_clients %}
+            <li>
+                <a href="{% url 'activeclient_detail' client.pk %}">{{ client.lead.full_name }}</a>
+                (Контракт: {{ client.contract.title }})
+            </li>
+        {% empty %}
+            <li>Активных клиентов пока нет.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

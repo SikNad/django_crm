@@ -1,0 +1,16 @@
+{% extends 'crm/base.html' %}
+{% block content %}
+    <h2>Перевод в активного клиента</h2>
+
+    <p><b>Потенциальный клиент:</b> {{ lead.full_name }}</p>
+    <p><b>Телефон:</b> {{ lead.phone }}</p>
+    <hr>
+
+    <p>Выберите контракт для этого клиента:</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="color: green;">Подтвердить</button>
+    </form>
+    <br><a href="{% url 'lead_list' %}">Отмена</a>
+{% endblock %}

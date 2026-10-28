@@ -1,0 +1,31 @@
+{% extends 'crm/base.html' %}
+{% block content %}
+    <h2>Статистика рекламных кампаний</h2>
+
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Кампания</th>
+                <th>Привлечено клиентов (Лидов)</th>
+                <th>Стало активными</th>
+                <th>Доход (руб.)</th>
+                <th>Расход (Бюджет, руб.)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in stats %}
+            <tr>
+                <td>{{ stat.campaign.title }}</td>
+                <td>{{ stat.leads_count }}</td>
+                <td>{{ stat.active_count }}</td>
+                <td>{{ stat.income }}</td>
+                <td>{{ stat.budget }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Нет данных для отображения.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

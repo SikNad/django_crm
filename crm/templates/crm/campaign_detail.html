@@ -1,0 +1,12 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+    <h2>{{ campaign.title }}</h2>
+    <p><b>Рекламируемая услуга:</b> {{ campaign.service.title }}</p>
+    <p><b>Канал продвижения:</b> {{ campaign.channel }}</p>
+    <p><b>Бюджет:</b> {{ campaign.budget }} руб.</p>
+
+    <br>
+    <a href="{% url 'campaign_update' campaign.pk %}">Редактировать</a> |
+    <a href="{% url 'campaign_list' %}">Назад к списку</a>
+{% endblock %}

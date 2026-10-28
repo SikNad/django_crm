@@ -1,0 +1,9 @@
+{% extends 'crm/base.html' %}
+{% block content %}
+    <h2>{{ lead.full_name }}</h2>
+    <p><b>Телефон:</b> {{ lead.phone }}</p>
+    <p><b>Email:</b> {{ lead.email }}</p>
+    <p><b>Кампания:</b> {{ lead.campaign.title }}</p>
+    <br>
+    <a href="{% url 'lead_list' %}">Назад к списку</a>
+{% endblock %}

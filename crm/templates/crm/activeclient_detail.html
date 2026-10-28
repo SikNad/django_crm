@@ -1,0 +1,11 @@
+{% extends 'crm/base.html' %}
+{% block content %}
+    <h2>Активный клиент: {{ activeclient.lead.full_name }}</h2>
+    <p><b>Телефон:</b> {{ activeclient.lead.phone }}</p>
+    <p><b>Email:</b> {{ activeclient.lead.email }}</p>
+    <hr>
+    <p><b>Контракт:</b> {{ activeclient.contract.title }}</p>
+    <p><b>Сумма:</b> {{ activeclient.contract.amount }} руб.</p>
+    <br>
+    <a href="{% url 'activeclient_list' %}">Назад к списку</a>
+{% endblock %}

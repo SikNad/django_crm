@@ -1,0 +1,17 @@
+{% extends 'crm/base.html' %}
+{% block content %}
+    <h2>Список контрактов</h2>
+    <a href="{% url 'contract_create' %}"><button>+ Создать контракт</button></a>
+    <ul>
+        {% for contract in contracts %}
+            <li>
+                <a href="{% url 'contract_detail' contract.pk %}">{{ contract.title }}</a>
+                (Сумма: {{ contract.amount }} руб.)
+                <a href="{% url 'contract_update' contract.pk %}">[Ред.]</a>
+                <a href="{% url 'contract_delete' contract.pk %}">[Удал.]</a>
+            </li>
+        {% empty %}
+            <li>Контрактов пока нет.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,7 @@
+SECRET_KEY=django-insecure-замените-это-на-свою-секретную-строку
+DEBUG=True
+DB_NAME=crm_db
+DB_USER=crm_user
+DB_PASSWORD=crm_password
+DB_HOST=localhost
+DB_PORT=5432

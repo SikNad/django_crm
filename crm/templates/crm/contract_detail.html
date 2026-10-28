@@ -1,0 +1,11 @@
+{% extends 'crm/base.html' %}
+{% block content %}
+    <h2>{{ contract.title }}</h2>
+    <p><b>Услуга:</b> {{ contract.service.title }}</p>
+    <p><b>Дата заключения:</b> {{ contract.date_signed }}</p>
+    <p><b>Период действия:</b> {{ contract.duration }}</p>
+    <p><b>Сумма:</b> {{ contract.amount }} руб.</p>
+    <p><b>Документ:</b> <a href="{{ contract.document.url }}" target="_blank">Скачать</a></p>
+    <br>
+    <a href="{% url 'contract_list' %}">Назад к списку</a>
+{% endblock %}
